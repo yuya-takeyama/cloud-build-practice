@@ -1,0 +1,89 @@
+steps:
+  - id: Job A_01
+    name: ubuntu:20.04
+    entrypoint: bash
+    args:
+      - -c
+      - |
+        touch job_A_01.txt
+        ls -l
+  - id: Job A_02
+    name: ubuntu:20.04
+    entrypoint: bash
+    args:
+      - -c
+      - |
+        touch job_A_02.txt
+        ls -l
+  - id: Job A_03
+    name: ubuntu:20.04
+    entrypoint: bash
+    args:
+      - -c
+      - |
+        touch job_A_03.txt
+        ls -l
+
+  - id: Job B_01
+    name: ubuntu:20.04
+    entrypoint: bash
+    args:
+      - -c
+      - |
+        touch job_B_01.txt
+        ls -l
+    waitFor: ['-']
+  - id: Job B_02
+    name: ubuntu:20.04
+    entrypoint: bash
+    args:
+      - -c
+      - |
+        touch job_B_02.txt
+        ls -l
+  - id: Job B_03
+    name: ubuntu:20.04
+    entrypoint: bash
+    args:
+      - -c
+      - |
+        touch job_B_03.txt
+        ls -l
+
+  - id: Job C_01
+    name: ubuntu:20.04
+    entrypoint: bash
+    args:
+      - -c
+      - |
+        touch job_C_01.txt
+        ls -l
+    waitFor: ['-']
+  - id: Job C_02
+    name: ubuntu:20.04
+    entrypoint: bash
+    args:
+      - -c
+      - |
+        touch job_C_02.txt
+        ls -l
+  - id: Job C_03
+    name: ubuntu:20.04
+    entrypoint: bash
+    args:
+      - -c
+      - |
+        touch job_C_03.txt
+        ls -l
+
+  - id: Job Last
+    name: ubuntu:20.04
+    entrypoint: bash
+    args:
+      - -c
+      - |
+        ls -l
+    waitFor:
+      - Job A_03
+      - Job B_03
+      - Job C_03
