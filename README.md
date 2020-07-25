@@ -7,3 +7,7 @@
 ## More
 
 ## Hotfix
+
+## Release
+
+## Release Hotfix
